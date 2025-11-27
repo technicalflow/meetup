@@ -11,7 +11,7 @@ provider "random" {
 
 resource "null_resource" "test" {
   provisioner "local-exec" {
-    command     = "echo Hello from $MEETUP and from $OWNER && The server hostname is $(hostname)"
+    command     = "echo Hello from $MEETUP and from $OWNER"
     working_dir = "/"
     environment = {
       MEETUP = "SODO GDANSK"
@@ -20,6 +20,7 @@ resource "null_resource" "test" {
     interpreter = ["/bin/bash", "-c"]
   }
 }
+
 
 
 
