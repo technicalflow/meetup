@@ -11,7 +11,7 @@ provider "random" {
 
 resource "null_resource" "test" {
   provisioner "local-exec" {
-    command     = "echo Hello from $MEETUP and from $OWNER && The server IP is ${self.public_ip}"
+    command     = "echo Hello from $MEETUP and from $OWNER && The server $(IP ip -br a)"
     working_dir = "/"
     environment = {
       MEETUP = "SODO GDANSK"
@@ -20,3 +20,4 @@ resource "null_resource" "test" {
     interpreter = ["/bin/bash", "-c"]
   }
 }
+
